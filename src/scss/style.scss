@@ -1,0 +1,152 @@
+@use "sass:math";
+
+// Миксины
+@import "./mixins";
+
+// Переменные
+// ================ Colors Start ================
+// Текст
+$text-primary: #333;
+$text-second: brig-color($text-primary, .7);
+$text-accent: #FFCD6D;
+$link-active: brig-color(#FFCD6D, active);
+
+// Задний фон разделов
+// $frame-dark: #080A0A;
+// $frame-light: #0E1010;
+
+// Обводка
+$border-line: #cecece;
+$input-placeholder: brig-color(#000, .3);
+
+$error: #EB5757;
+
+// Текстовые поля
+$tf-label: $text-second;
+
+// Цвета кнопок в файле 'scss/elements/button.scss'
+// ================ Colors End ================
+
+
+// ================ Responsive Start ================
+$min-width: 320px;
+$max-width: 1920px;
+$max-width-container: 1200;
+$container-padding: 24;
+$container-width: $max-width-container + $container-padding;
+
+$laptop-l: 1440px;
+$laptop: 1024px;
+$tablet: 768px;
+$mobile-l: 425px;
+$mobile-m: 375px;
+$mobile-s: 320px;
+// ================ Responsive End ================
+
+
+// ================ Other Start ================
+$ff-main: sans-serif;
+$tr: .3s;
+// ================ Other End ================
+//========================================================================================================================================================
+
+// Тип адаптива:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
+$responsive-type: 1;
+
+// Сброс CSS
+@import "./base/reset";
+
+body {
+
+    ._lock & {
+        overflow: hidden;
+		touch-action: none;
+    }
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    & > .content {
+        flex: 1 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+@if ($responsive-type==1) {
+	// Отзывчивая
+	[class*="__container"] {
+		@if ($max-width-container>0) {
+			max-width: rem($max-width-container);
+			box-sizing: content-box;
+			margin: 0 auto;
+		}
+		@if ($container-padding>0) {
+			padding: 0 rem(math.div($container-padding, 2));
+		}
+	}
+} 
+// @else {
+// 	// По брейк-поинтам
+// 	[class*="__container"] {
+// 		margin: 0 auto;
+// 		@if ($max-width-container>0) {
+// 			max-width: rem($max-width-container);
+// 			box-sizing: content-box;
+// 		} @else {
+// 			@if ($container-padding>0) {
+// 				padding: 0 rem(math.div($container-padding, 2));
+// 			}
+// 		}
+// 		@media (max-width: $container-width + px) {
+// 			max-width: rem(970);
+// 		}
+// 		@media (max-width: $tablet) {
+// 			max-width: rem(750);
+// 		}
+// 		@media (max-width: $mobile-l) {
+// 			max-width: none;
+// 			@if ($container-padding>0 and $max-width-container>0) {
+// 				padding: 0 rem(math.div($container-padding, 2));
+// 			}
+// 		}
+// 	}
+// }
+
+// @import "grid"; // Сетка
+
+// // Элементы
+// @import "./elements/buttons";
+// @import "./elements/select";
+// @import "./elements/textfield";
+
+
+// Базовые стили, шаблоны, заготовки
+@import "./base";
+
+// Общие стили проекта
+@import "./common";
+
+// Стили частоиспользуемых секций
+@import "./sections/header";
+@import "./sections/main";
+@import "./sections/footer";
+
+
+// Стили для отдельных страниц
+
+// INFO: Тестовые стили. Все что ниже нужно удалить в новом проекте
