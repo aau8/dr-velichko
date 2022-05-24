@@ -1,0 +1,68 @@
+.main {
+    position: relative;
+    width: 100%;
+    // height: 100vh;
+    background: top center/cover no-repeat url("@img/main/main-bg.png");
+    padding-top: var(--header-height);
+}
+
+.main__container {
+    position: relative;
+    padding: 100px 0 170px 0;
+}
+
+.main__content {
+
+}
+
+.main__info {
+    margin-top: 140px;
+}
+
+.main__title {
+    font-size: 77px;
+    font-family: $ff-bellota;
+}
+
+.main__text {
+    // max-width: 590px;
+    font-size: rem(26);
+    margin-top: 24px;
+}
+
+.main__btn {
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -32px;
+        transform: translate(0, -50%);
+        width: 100%;
+        height: 3px;
+        background: $light;
+    }
+}
+
+.main__callback {
+    position: relative;
+    z-index: 1;
+    height: 98px;
+    width: 350px;
+    font-size: 28px;
+    letter-spacing: .35em;
+    margin-top: 93px;
+}
+
+.main__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    // width: 50%;
+    height: 100%;
+
+    & img {
+        object-fit: cover;
+    }
+}

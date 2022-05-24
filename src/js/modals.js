@@ -1,6 +1,6 @@
 import { find, bodyLock, bodyLockToggle } from './utils/functions.js'
 
-modal()
+// modal()
 function modal() {
 
     // Открытие модальных окон при клике по кнопке

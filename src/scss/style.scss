@@ -3,16 +3,34 @@
 // Миксины
 @import "./mixins";
 
+// Подключение шрифтов
+@include font('Noto Sans Display', normal, 400, '../resources/fonts/Noto-Sans-Display/NotoSansDisplay-Regular.woff2');
+@include font('Noto Sans Display', normal, 700, '../resources/fonts/Noto-Sans-Display/NotoSansDisplay-Bold.woff2');
+
+@include font('Noto Serif Display', normal, 400, '../resources/fonts/Noto-Serif-Display/NotoSerifDisplay-Italic.woff2');
+
+@include font('Bellota Text', normal, 400, '../resources/fonts/Bellota-Text/BellotaText-Regular.woff2');
+
+@include font('Montserrat', normal, 300, '../resources/fonts/Montserrat/Montserrat-Light.woff2');
+@include font('Montserrat', normal, 400, '../resources/fonts/Montserrat/Montserrat-Regular.woff2');
+
+$ff-main: 'Noto Sans Display', sans-serif;
+$ff-main-serif: 'Noto Serif Display', serif;
+$ff-bellota: 'Bellota Text', sans-serif;
+$ff-montserrat: 'Montserrat', sans-serif;
+
 // Переменные
 // ================ Colors Start ================
 // Текст
-$text-primary: #333;
-$text-second: brig-color($text-primary, .7);
-$text-accent: #FFCD6D;
-$link-active: brig-color(#FFCD6D, active);
+$text-primary: #212121;
+$text-second: #706D6B;
+$text-accent: #B29889;
+$text-accent-dark: #8E7F76;
+$light: #fff;
+// $link-active: brig-color(#FFCD6D, active);
 
 // Задний фон разделов
-// $frame-dark: #080A0A;
+$frame-dark: #BFABA0;
 // $frame-light: #0E1010;
 
 // Обводка
@@ -31,8 +49,8 @@ $tf-label: $text-second;
 // ================ Responsive Start ================
 $min-width: 320px;
 $max-width: 1920px;
-$max-width-container: 1200;
-$container-padding: 24;
+$max-width-container: 1500;
+$container-padding: 48;
 $container-width: $max-width-container + $container-padding;
 
 $laptop-l: 1440px;
@@ -41,11 +59,12 @@ $tablet: 768px;
 $mobile-l: 425px;
 $mobile-m: 375px;
 $mobile-s: 320px;
+
+$hide-menu: $tablet;
 // ================ Responsive End ================
 
 
 // ================ Other Start ================
-$ff-main: sans-serif;
 $tr: .3s;
 // ================ Other End ================
 //========================================================================================================================================================
@@ -96,7 +115,7 @@ body {
 			margin: 0 auto;
 		}
 		@if ($container-padding>0) {
-			padding: 0 rem(math.div($container-padding, 2));
+			padding: 0 math.div($container-padding, 2) + px;
 		}
 	}
 } 
@@ -130,7 +149,7 @@ body {
 // @import "grid"; // Сетка
 
 // // Элементы
-// @import "./elements/buttons";
+@import "./base/forms/buttons";
 // @import "./elements/select";
 // @import "./elements/textfield";
 

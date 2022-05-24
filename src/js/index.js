@@ -1,7 +1,24 @@
-import { find, findAll, removeAllClasses, bodyLock } from "./utils/functions.js";
+import { find, findAll, removeAllClasses, bodyLockToggle } from "./utils/functions.js";
 import "./render.js";
-// import "./menu.js";
 import "./modals.js";
+
+const menu = document.querySelector('.menu')
+const menuBg = menu.querySelector('.menu__bg')
+const burgerElems = document.querySelectorAll('.burger')
+
+for (let i = 0; i < burgerElems.length; i++) {
+    const burger = burgerElems[i];
+    
+    burger.addEventListener('click', e => {
+        menu.classList.toggle('is-show')
+        bodyLockToggle()
+    })
+}
+
+menuBg.addEventListener('click', e => {
+    menu.classList.toggle('is-show')
+    bodyLockToggle()
+})
 
 // Стрелка "Наверх"
 // document.querySelector(".back-to-top").addEventListener("click", (e) => {

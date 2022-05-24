@@ -26,9 +26,9 @@ export default {
     },
 
     watch: {
-        js: `${srcFolder}/js/index.js`,
+        js: `${srcFolder}/js/**/*.js`,
         scss: `${srcFolder}/scss/**/*.{scss,sass,css}`,
-        html: `${srcFolder}/*.html`,
+        html: `${srcFolder}/**/*.html`,
         images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
         convertImages: `convert-images/**/*.*`,
         svg: `${srcFolder}/img/**/*.svg`,
